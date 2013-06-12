@@ -32,10 +32,11 @@ class FilerGalleryPlugin(CMSPluginBase):
             'show_randomly': False
             }
         )
+        thumb_size = context.get('thumb_size', (instance.thumb_width, instance.thumb_height))
         context.update({
             'instance': instance,
             'size': (instance.width, instance.height),
-            'thumb_size': (instance.thumb_height, instance.thumb_width),
+            'thumb_size': thumb_size,
             'skitter_config': config
         })
         return context
